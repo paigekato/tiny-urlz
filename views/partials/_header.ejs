@@ -1,14 +1,21 @@
 <H1>Tiny Times</H1>
 
-<div>
-  <a href="/urls">Index</a>
-</div>
-<div>
-  <a href="/urls/new">Create New Link</a>
-</div>
-<div>
-  <a href="/register">Register</a>
-</div>
-<div>
-  <a href="/login">Login</a>
-</div>
+<% if (user.user_id) { %>
+  <div>
+    <a href="/logout">Logout</a>
+  </div>
+  <div>
+    <a href="/urls">Index</a>
+  </div>
+  <div>
+    <a href="/urls/new">Create New Link</a>
+  </div>
+<% } else { %>
+  <div>
+    <a href="/register">Register</a>
+  </div>
+  <div>
+    <a href="/login">Login</a>
+  </div>
+<% } %>
+

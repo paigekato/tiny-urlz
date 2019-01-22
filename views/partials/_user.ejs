@@ -1,0 +1,17 @@
+<form action="<%= action %>" method="POST" class="<%= className %>">
+  <% if(userName) {  %>
+    <div>
+      <label for="username">Username: </label>
+      <input id="username" type="text" name="username" placeholder="Username" value="paige">
+    </div>
+    <% } %>
+    <div>
+      <label for="email">Email: </label>
+      <input id="email" type="email" name="email" placeholder="Email" value="paige@paige.com">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input id="password" type="password" name="password" placeholder="Password" vaue="paige">
+    </div>
+  <input type="submit" value="<%= value %>">
+</form>
