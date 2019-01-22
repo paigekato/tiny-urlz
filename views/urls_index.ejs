@@ -11,16 +11,16 @@
     
     <% for (const url in urls) { %>
       <div>
-        <a href="<%= urls[url] %>">
-          <%= url %>
+        <%= urls[url].id %> - 
+        <a href="<%= urls[url].longUrl %>">
+          <%= urls[url].longUrl %>
         </a>
-        : <%= urls[url] %>
         <a href="/urls/<%= url %>">
           <button>Update</button>
         </a>
 
         <%- include('partials/_delete', {
-          shortUrl: url,
+          shortUrl: url.shortUrl,
           className: 'form-delete'
         }) %>
       </div>
