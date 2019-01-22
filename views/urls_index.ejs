@@ -1,0 +1,29 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tiny Times</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <% include partials/_header %>
+    
+    <% for (const url in urls) { %>
+      <div>
+        <a href="<%= urls[url] %>">
+          <%= url %>
+        </a>
+        : <%= urls[url] %>
+        <a href="/urls/<%= url %>">
+          <button>Update</button>
+        </a>
+
+        <%- include('partials/_delete', {
+          shortUrl: url,
+          className: 'form-delete'
+        }) %>
+      </div>
+    <% } %>
+  </body>
+</html>
