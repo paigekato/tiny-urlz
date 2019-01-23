@@ -33,14 +33,13 @@ function checkExistingUser(email) {
 }
 
 function getUsersUrls(id) {
-  let urls = [];
+  let urls = {};
 
   for (let url in urlDatabase) {
     if (urlDatabase[url].id === id) {
-      urls.push(urlDatabase[url]);
+      urls[url] = urlDatabase[url]
     }
   }
-  
   return urls;
 }
 
@@ -92,7 +91,6 @@ app.post('/urls', (req, res) => {
 
   urlDatabase[shortUrl] = {
     id: req.session.user_id,
-    shortUrl: shortUrl,
     longUrl: longUrl
   };
 
@@ -103,8 +101,9 @@ app.post('/urls', (req, res) => {
 app.post('/urls/:id', (req, res) => {
   let shortUrl = req.params.id;
   let longUrl = req.body.longUrl;
+  console.log(longUrl,' THE SHORT URL');
 
-  urlDatabase[shortUrl] = longUrl;
+  urlDatabase[shortUrl].longUrl = longUrl;
   res.redirect('/urls');
 });
 

@@ -11,7 +11,7 @@
     
     <% for (const url in urls) { %>
       <div>
-        <%= urls[url].id %> - 
+        <%= url %> - 
         <a href="<%= urls[url].longUrl %>">
           <%= urls[url].longUrl %>
         </a>
@@ -20,7 +20,7 @@
         </a>
 
         <%- include('partials/_delete', {
-          shortUrl: url.shortUrl,
+          shortUrl: url,
           className: 'form-delete'
         }) %>
       </div>
