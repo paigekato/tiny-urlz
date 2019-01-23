@@ -95,8 +95,6 @@ app.post('/urls', (req, res) => {
     longUrl: longUrl
   };
 
-  console.log(urlDatabase)
-
   res.redirect('/urls');
 });
 
@@ -206,7 +204,7 @@ app.post('/login', (req, res) => {
       req.session.user_id = user.id;
       res.redirect('/urls');
     } else {
-      res.status(400).send('Sorry, that\'s the wrong password, yo');
+      res.status(400).send('Sorry, that\'s the wrong password');
     }
   }
 });
@@ -218,5 +216,5 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.log(`Listening on port ${PORT}!`);
 });

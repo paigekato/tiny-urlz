@@ -1,21 +1,12 @@
 <H1>Tiny Times</H1>
 
-<% if (user.user_id) { %>
-  <div>
+<div class="sidebar">
+  <% if (user.user_id) { %>
     <a href="/logout">Logout</a>
-  </div>
-  <div>
     <a href="/urls">Index</a>
-  </div>
-  <div>
     <a href="/urls/new">Create New Link</a>
-  </div>
-<% } else { %>
-  <div>
+  <% } else { %>
     <a href="/register">Register</a>
-  </div>
-  <div>
     <a href="/login">Login</a>
-  </div>
-<% } %>
-
+  <% } %>
+</div>
