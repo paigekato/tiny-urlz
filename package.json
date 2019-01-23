@@ -2,7 +2,7 @@
   "name": "tiny-urls",
   "version": "1.0.0",
   "description": "A url shortening tool",
-  "main": "index.js",
+  "main": "express_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node express_server.js"
@@ -13,7 +13,11 @@
     "bcrypt": "^3.0.3",
     "body-parser": "^1.18.3",
     "cookie-session": "^2.0.0-beta.3",
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "9.11.2"
   }
 }
