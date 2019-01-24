@@ -1,11 +1,11 @@
 {
   "name": "tiny-urls",
   "version": "1.0.0",
-  "description": "A url shortening tool",
+  "description": "A url shortening app",
   "main": "express_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node express_server.js"
+    "start": "node express_server.js",
+    "dev": "nodemon express_server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,8 @@
   },
   "engines": {
     "node": "9.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
