@@ -13,17 +13,17 @@
       <% for (const url in urls) { %>
         <div class="urls-wrapper-url">
           <span class="urls-wrapper-short-url">
-            <%= urls[url].longUrl %> - 
+            <%= urls[url].long_url %> - 
           </span>
-          <a href="<%= urls[url].longUrl %>" class="urls-wrapper-link">
-            /u/<%= url %>
+          <a href="<%= urls[url].long_url %>" class="urls-wrapper-link">
+            /u/<%= urls[url].short_url %>
           </a>
-          <a href="/urls/<%= url %>" class="urls-wrapper-update">
+          <a href="/urls/<%= urls[url].short_url %>" class="urls-wrapper-update">
             <button>Update</button>
           </a>
           <span class="urls-wrapper-delete">
             <%- include('partials/_delete', {
-              shortUrl: url,
+              shortUrl: urls[url].short_url,
               className: 'form-delete'
             }) %>
           </span>

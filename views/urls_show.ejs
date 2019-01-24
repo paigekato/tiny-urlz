@@ -9,9 +9,9 @@
   <body>
     <% include partials/_header %>
 
-    Updating <%= url.longUrl %> Please enter a new url to redirect to:
+    Updating the url <%= url.long_url %>. Please enter a new url to redirect to:
     <%- include('partials/_form', {
-      action: shortUrl,
+      action: url.short_url,
       method: 'POST',
       value: 'Update',
       className: 'form-update'
