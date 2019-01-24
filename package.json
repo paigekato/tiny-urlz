@@ -4,8 +4,8 @@
   "description": "A url shortening app",
   "main": "express_server.js",
   "scripts": {
-    "start": "node server/express_server.js",
-    "dev": "nodemon server/express_server.js"
+    "start": "node scripts/express_server.js",
+    "dev": "nodemon scripts/express_server.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,53 +1,26 @@
 require('dotenv').config();
+const generateRandomId = require('./helpers/user');
+const createNewUser = require('./helpers/user');
+const saveToCollection = require('./helpers/database');
+const path = require('path')
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const MongoClient = require('mongodb').MongoClient;
 const bcrypt = require('bcrypt');
+const app = express();
+const PORT = process.env.PORT || 8080;
+const MONGO_URL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds211635.mlab.com:11635/${process.env.DB_NAME}`;
+const USERS_COLLECTION = 'users';
+const URLS_COLLECTION = 'urls';
 
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieSession({
   name: 'session',
   keys: [process.env.COOKIE_SESSION_KEY]
 }))
-
-const MONGO_URL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds211635.mlab.com:11635/${process.env.DB_NAME}`;
-const USERS_COLLECTION = 'users';
-const URLS_COLLECTION = 'urls';
-
-//-------HELPERS-------\\
-function generateRandomId() {
-  let randomId = Math.random().toString(36).substring(5);
-  return randomId;
-}
-
-function saveToCollection(collection, item, res) {
-  db.collection(collection).save(item, (err, result) => {
-    if (err) {
-      return console.log(err);
-    };
-
-    res.redirect('/urls');
-  });
-}
-
-function createNewUser(username, email, password) {
-  let userId = generateRandomId();
-  let encryptedPassword = bcrypt.hashSync(password, 10);
-  let user;
-
-  user = {
-    user_id: userId,
-    username: username,
-    email: email,
-    password: encryptedPassword
-  }
-
-  return user;
-}
 
 //-------URL MANAGEMENT-------\\
 app.get('/', (req, res) => {
@@ -92,9 +65,9 @@ app.get('/urls/new', (req, res) => {
 
 // Create new short URL
 app.post('/urls', (req, res) => {
-  let shortUrl = generateRandomId();
-  let longUrl = req.body.longUrl;
-  let url = {
+  let shortUrl = generateRandomId(),
+      longUrl = req.body.longUrl,
+      url = {
     user_id: req.session.user_id,
     long_url: longUrl,
     short_url: shortUrl
@@ -153,9 +126,9 @@ app.get('/register', (req, res) => {
 
 // Register User
 app.post('/register', (req, res) => {
-  let username = req.body.username;
-  let email = req.body.email;
-  let password = req.body.password;
+  let username = req.body.username,
+      email = req.body.email,
+      password = req.body.password;
 
   // validate form
   if (!username || !email || !password) {
@@ -195,9 +168,9 @@ app.get('/login', (req, res) => {
 
 // Log In
 app.post('/login', (req, res) => {
-  let email = req.body.email;
-  let password = req.body.password;
-  let user;
+  let email = req.body.email,
+      password = req.body.password,
+      user;
 
   if (!email || !password) {
     res.send('Please fill out email and password');
