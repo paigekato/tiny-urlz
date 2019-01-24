@@ -10,12 +10,14 @@
   <body>
     <% include partials/_header %>
     
-    <%- include('partials/_form', {
-      action: '',
-      method: 'POST',
-      value: 'Submit',
-      className: 'form-new'
-    }) %>
+    <div class="new-url-wrapper">
+      <%- include('partials/_form', {
+        action: '',
+        method: 'POST',
+        value: 'Submit',
+        className: 'form-new'
+      }) %>
+    </div>
     
   </body>
 </html>

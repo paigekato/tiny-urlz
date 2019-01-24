@@ -8,22 +8,28 @@
   </head>
   <body>
     <% include partials/_header %>
-    
-    <% for (const url in urls) { %>
-      <div>
-        <%= url %> - 
-        <a href="<%= urls[url].longUrl %>">
-          <%= urls[url].longUrl %>
-        </a>
-        <a href="/urls/<%= url %>">
-          <button>Update</button>
-        </a>
 
-        <%- include('partials/_delete', {
-          shortUrl: url,
-          className: 'form-delete'
-        }) %>
-      </div>
-    <% } %>
+    <div class="urls-wrapper">
+      <% for (const url in urls) { %>
+        <div class="urls-wrapper-url">
+          <span class="urls-wrapper-short-url">
+            <%= urls[url].longUrl %> - 
+          </span>
+          <a href="<%= urls[url].longUrl %>" class="urls-wrapper-link">
+            /u/<%= url %>
+          </a>
+          <a href="/urls/<%= url %>" class="urls-wrapper-update">
+            <button>Update</button>
+          </a>
+          <span class="urls-wrapper-delete">
+            <%- include('partials/_delete', {
+              shortUrl: url,
+              className: 'form-delete'
+            }) %>
+          </span>
+        </div>
+      <% } %>
+    </div>
+    
   </body>
 </html>

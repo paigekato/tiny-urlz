@@ -101,7 +101,6 @@ app.post('/urls', (req, res) => {
 app.post('/urls/:id', (req, res) => {
   let shortUrl = req.params.id;
   let longUrl = req.body.longUrl;
-  console.log(longUrl,' THE SHORT URL');
 
   urlDatabase[shortUrl].longUrl = longUrl;
   res.redirect('/urls');
@@ -118,7 +117,7 @@ app.get('/urls/:id', (req, res) => {
   let templateVars = {
     user: req.session,
     shortUrl: req.params.id,
-    longUrl: urlDatabase[req.params.id]
+    url: urlDatabase[req.params.id]
   };
     
   res.render('urls_show', templateVars);

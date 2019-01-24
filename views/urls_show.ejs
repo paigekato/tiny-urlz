@@ -9,7 +9,7 @@
   <body>
     <% include partials/_header %>
 
-    Updating <%= longUrl %> Please enter a new url to redirect to:
+    Updating <%= url.longUrl %> Please enter a new url to redirect to:
     <%- include('partials/_form', {
       action: shortUrl,
       method: 'POST',
