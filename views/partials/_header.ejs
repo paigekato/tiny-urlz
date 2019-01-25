@@ -1,12 +1,18 @@
 
-<div class="sidebar">
-  <H1>Tiny Times</H1>
-  <% if (user.user_id) { %>
-    <a href="/logout">Logout</a>
-    <a href="/urls">Index</a>
-    <a href="/urls/new">Create New Link</a>
-  <% } else { %>
-    <a href="/register">Register</a>
-    <a href="/login">Login</a>
-  <% } %>
+<div class="navbar">
+  <H1 class="main-heading">
+    <a href="/">
+      Earl Shortener
+    </a>
+  </H1>
+  <div class="nav-links">
+    <% if (user.user_id) { %>
+      <a href="/urls/new">Create</a>
+      <a href="/urls">Manage</a>
+      <a href="/logout">Logout</a>
+    <% } else { %>
+      <a class="nav-links-login" href="/login">Login</a>
+      <a class="nav-links-regsiter" href="/register">Register</a>
+    <% } %>
+  </div>
 </div>

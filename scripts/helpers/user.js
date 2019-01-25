@@ -1,7 +1,4 @@
-module.exports = function generateRandomId() {
-  let randomId = Math.random().toString(36).substring(5);
-  return randomId;
-}
+const generateRandomId = require('./generateRandomId');
 
 module.exports = function createNewUser(username, email, password) {
   let userId = generateRandomId();

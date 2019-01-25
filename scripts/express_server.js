@@ -1,7 +1,6 @@
 require('dotenv').config();
-const generateRandomId = require('./helpers/user');
+const generateRandomId = require('./helpers/generateRandomId');
 const createNewUser = require('./helpers/user');
-const saveToCollection = require('./helpers/database');
 const path = require('path')
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -13,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 const MONGO_URL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds211635.mlab.com:11635/${process.env.DB_NAME}`;
 const USERS_COLLECTION = 'users';
 const URLS_COLLECTION = 'urls';
+var db;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '../public')));
@@ -21,6 +21,17 @@ app.use(cookieSession({
   name: 'session',
   keys: [process.env.COOKIE_SESSION_KEY]
 }))
+
+//-------Connect to mongoDb-------\\
+function saveToCollection(collection, item, res) {
+  db.collection(collection).save(item, (err, result) => {
+    if (err) {
+      return console.log(err);
+    };
+
+    res.redirect('/urls');
+  });
+}
 
 //-------URL MANAGEMENT-------\\
 app.get('/', (req, res) => {
@@ -197,8 +208,6 @@ app.get('/logout', (req, res) => {
 });
 
 //-------Connect to mongoDb-------\\
-var db;
-
 MongoClient.connect(MONGO_URL, { useNewUrlParser: true }, (err, client) => {
   if (err) {
     return console.log(err);

@@ -1,35 +1,39 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+    <%- include('partials/_head', {
+      title: 'Dashboard'
+    }) %>
   <body>
     <% include partials/_header %>
-
-    <div class="urls-wrapper">
-      <% for (const url in urls) { %>
-        <div class="urls-wrapper-url">
-          <span class="urls-wrapper-short-url">
-            <%= urls[url].long_url %> - 
-          </span>
-          <a href="<%= urls[url].long_url %>" class="urls-wrapper-link">
-            /u/<%= urls[url].short_url %>
-          </a>
-          <a href="/urls/<%= urls[url].short_url %>" class="urls-wrapper-update">
-            <button>Update</button>
-          </a>
-          <span class="urls-wrapper-delete">
-            <%- include('partials/_delete', {
-              shortUrl: urls[url].short_url,
-              className: 'form-delete'
-            }) %>
-          </span>
+    <main>
+      <div class="urls-wrapper">
+        <h2>
+          A list of all your earls.
+        </h2>
+        <div class="urls-wrapper-message">
+          <a href="/urls/new">Create some more.</a>
         </div>
-      <% } %>
-    </div>
+        <% for (const url in urls) { %>
+          <div class="urls-wrapper-url">
+            <span class="urls-wrapper-short-url">
+              <%= urls[url].long_url %> - 
+            </span>
+            <a href="<%= urls[url].long_url %>" class="urls-wrapper-link">
+              /u/<%= urls[url].short_url %>
+            </a>
+            <a href="/urls/<%= urls[url].short_url %>" class="urls-wrapper-update">
+              <button>Change</button>
+            </a>
+            <span class="urls-wrapper-delete">
+              <%- include('partials/_delete', {
+                shortUrl: urls[url].short_url,
+                className: 'form-delete'
+              }) %>
+            </span>
+          </div>
+        <% } %>
+      </div>
+    </main>
     
   </body>
 </html>

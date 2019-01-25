@@ -1,20 +1,19 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+    <%- include('partials/_head', {
+      title: 'Update Url'
+    }) %>
   <body>
     <% include partials/_header %>
 
-    Updating the url <%= url.long_url %>. Please enter a new url to redirect to:
-    <%- include('partials/_form', {
-      action: url.short_url,
-      method: 'POST',
-      value: 'Update',
-      className: 'form-update'
-    }) %>
+    <main>
+      Updating the url <%= url.long_url %>. Please enter a new url to redirect to:
+      <%- include('partials/_form', {
+        action: url.short_url,
+        method: 'POST',
+        value: 'Change',
+        className: 'form-update'
+      }) %>
+    </main>
   </body>
 </html>

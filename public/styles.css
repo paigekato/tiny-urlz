@@ -1,0 +1,127 @@
+/* Layout */
+body {
+  background-color: black;
+  color: white;
+  /* display: flex; */
+  margin: 0;
+  font-family: 'Space Mono', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+main {
+  margin: 20px 40px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.navbar .nav-links a {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Typography */
+h1 {
+  font-weight: 900;
+  letter-spacing: 2;
+  font-size: 36px;
+}
+
+h2, h4, h4, h5 {
+  font-weight: 400;
+}
+
+.main-welcome h2 {
+  font-size: 80px;
+  font-weight: 900;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: all 100ms ease-in-out;
+}
+
+a:hover {
+  color: #E4E2E2;
+}
+
+.main-welcome-message {
+  max-width: 450px;
+}
+
+/* Forms */
+form.form-register,
+form.form-login {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 250px;
+}
+
+form label {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+form input,
+button {
+  margin-top: 5px;
+  height: 25px;
+  border-radius: 3px;
+  border-style: none;
+  font-family: 'Space Mono', sans-serif;
+}
+
+input::-webkit-input-placeholder {
+  padding-left: 5px;
+}
+
+form.form-register div.button input,
+form.form-login div.button input {
+  margin-top: 30px;
+  cursor: pointer;
+  height: 40px;
+  font-size: 16px;
+  width: 100%;
+}
+
+form input[type="submit"]:hover,
+.urls-wrapper-url button:hover {
+  transition: all 100ms ease-in-out;
+  background-color: #E4E2E2;
+}
+
+form.form-delete {
+  margin-bottom: 0;
+}
+
+/* Elements */
+.urls-wrapper-url {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.urls-wrapper-message {
+  margin-bottom: 40px;
+}
+
+.urls-wrapper-url button {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 10px;
+  margin-top: 0;
+  cursor: pointer;
+}
+
+.urls-wrapper-update {
+  padding-left: 20px;
+}
