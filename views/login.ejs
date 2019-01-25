@@ -1,21 +1,19 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  </head>
+    <%- include('partials/_head', {
+      title: 'Login'
+    }) %>
   <body>
     <% include partials/_header %>
-    <h1>Login</h1>
-
-    <%- include('partials/_user', {
-      action: '/login',
-      className: 'form-login',
-      value: 'Login',
-      userName: false
-    }) %>
+    <main>
+      <h2>Login</h2>
+  
+      <%- include('partials/_user', {
+        action: '/login',
+        className: 'form-login',
+        value: 'Login',
+        userName: false
+      }) %>
+    </main>
   </body>
 </html>

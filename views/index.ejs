@@ -1,14 +1,13 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times - Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="main.css">
-  </head>
+  <%- include('partials/_head', {
+    title: 'Home'
+  }) %>
   <body>
     <% include partials/_header %>
-    Hello, this is the index
+    <main class="main-welcome">
+      <h2>Hello!</h2>
+      <div class="main-welcome-message">welcome to your url shortener. <a href="/register">make a new account</a> or <a href="/login">login to your existing account.</a> whatever, yo. you do you.</div>
+    </main>
   </body>
 </html>

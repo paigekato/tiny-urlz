@@ -1,21 +1,20 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  </head>
+    <%- include('partials/_head', {
+      title: 'Create New Url'
+    }) %>
   <body>
     <% include partials/_header %>
-    
-    <%- include('partials/_form', {
-      action: '',
-      method: 'POST',
-      value: 'Submit',
-      className: 'form-new'
-    }) %>
+    <main>
+      <div class="new-url-wrapper">
+        <%- include('partials/_form', {
+          action: '',
+          method: 'POST',
+          value: 'Create',
+          className: 'form-new'
+        }) %>
+      </div>
+    </main>
     
   </body>
 </html>

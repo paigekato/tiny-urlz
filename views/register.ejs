@@ -1,22 +1,20 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tiny Times - Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  </head>
+    <%- include('partials/_head', {
+      title: 'Register'
+    }) %>
   <body>
     <% include partials/_header %>
-    <h1>Register</h1>
-
-    <%- include('partials/_user', {
-      action: '/register',
-      className: 'form-register',
-      value: 'Register',
-      userName: true
-    }) %>
+    <main>
+      <h2>Register</h2>
+  
+      <%- include('partials/_user', {
+        action: '/register',
+        className: 'form-register',
+        value: 'Register',
+        userName: true
+      }) %>
+    </main>
   
   </body>
 </html>
